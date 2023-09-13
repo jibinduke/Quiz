@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .quiz-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 25px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+        }
+        .question {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1><center>Quiz Game </center></h1>
+        <div class="question">Question 1: India won against whom in 2011 world cup circket?</div>
+        <div class="options">
+            <label><input type="radio" name="q1" value="a"> Australia</label>
+            <label><input type="radio" name="q1" value="b"> England</label>
+            <label><input type="radio" name="q1" value="c"> Pakistan</label>
+            <label><input type="radio" name="q1" value="d"> Sri Lanka</label>
+        </div>
+        <br>
+        <div class="question">Question 2: Who is considered as the best captain of Indian circket?</div>
+        <div class="options">
+            <label><input type="radio" name="q2" value="a"> Virat Kholi</label>
+            <label><input type="radio" name="q2" value="b"> Rahul Dravid</label>
+            <label><input type="radio" name="q2" value="c"> MS Dhoni</label>
+            <label><input type="radio" name="q2" value="d"> Rohit Sharma</label>
+        </div>
+        <br>
+        <div class="question">Question 3: Who is known as the God of circket?</div>
+        <div class="options">
+            <label><input type="radio" name="q3" value="a"> Ricky Ponting</label>
+            <label><input type="radio" name="q3" value="b"> Sachin Tendulkar</label>
+            <label><input type="radio" name="q3" value="c"> Shahid Afridi</label>
+            <label><input type="radio" name="q3" value="d"> AB de Villiers</label>
+        </div>
+        <br>
+        <button onclick="calculateScore()">Submit Answers</button>
+    </div>
+
+  
+
+    <script>
+        function calculateScore() {
+            const answers = {
+                q1: "d",
+                q2: "c",
+                q3: "b"
+            };
+
+            let score = 0;
+            for (const question in answers) {
+                const selectedOption = document.querySelector(`input[name=${question}]:checked`);
+                if (selectedOption) {
+                    if (selectedOption.value === answers[question]) {
+                        score++;
+                    }
+                }
+            }
+
+            alert(`You scored ${score} out of ${Object.keys(answers).length}`);
+        }
+    </script>
+</body>
+</html>
